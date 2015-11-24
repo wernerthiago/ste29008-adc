@@ -5,14 +5,17 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../Analog_Digital.cpp \
+../Uart.cpp \
 ../main.cpp 
 
 OBJS += \
 ./Analog_Digital.o \
+./Uart.o \
 ./main.o 
 
 CPP_DEPS += \
 ./Analog_Digital.d \
+./Uart.d \
 ./main.d 
 
 

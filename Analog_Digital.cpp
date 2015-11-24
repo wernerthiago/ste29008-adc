@@ -10,6 +10,9 @@
 #include "avr/interrupt.h"
 #include "math.h"
 #include "stdlib.h"
+#include "Uart.h"
+
+Uart Uart::uart;
 
 void operator delete(void * p) {
 	free(p);
@@ -17,30 +20,33 @@ void operator delete(void * p) {
 
 Analog_Digital::Analog_Digital() {
 	// TODO Auto-generated constructor stub
-
+    //DIDR0 -> default
+    PRR &= ~(1<<PRADC);     //ADC turned on
+    //ADMUX -> default
+    ADCSRA = 0xAB;          //ADC Enabled, no auto trigger, Interrupt enabled, 128 prescaller
+    //ADCSRB -> default in free running mode
 }
 
 Analog_Digital::~Analog_Digital() {
 	// TODO Auto-generated destructor stub
 }
 
-void Analog_Digital::adc_init(){
-    DIDR0 = 0x00;           //Digital input disabled on all ADC ports
-    PRR &= ~(1<<PRADC);     //ADC turned on
-    ADMUX = 0x60;           //AVcc, right adjusted, ADC0 pin
-    sei();
-    ADCSRA = 0xcF;          //ADC Enabled, no auto trigger, Interrupt enabled, 128 prescaller
-}
-
 unsigned long int Analog_Digital::to_analog(unsigned long int val){
-	return (5/1023)/val;
+	if(ADIF == 1){
+		return (5/1023)/val;
+	}else{
+		return -1;
+	}
 }
 
 ISR(ADC_vect){
-    int adc_val;
-    adc_val = ADCH;
+	Analog_Digital::interrupt_adc();
+}
 
-    OCR0A = adc_val;
+void Analog_Digital::interrupt_adc(){
+    int adc_val;
+    adc_val = ADC;
+    buffer.push(adc_val);
     ADCSRA |= 1<<ADSC;
 }
 
