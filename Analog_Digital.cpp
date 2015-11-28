@@ -12,7 +12,7 @@
 #include "stdlib.h"
 #include "Uart.h"
 
-Uart Uart::uart;
+Analog_Digital Analog_Digital::adc;
 
 void operator delete(void * p) {
 	free(p);
@@ -24,6 +24,19 @@ Analog_Digital::Analog_Digital() {
     PRR &= ~(1<<PRADC);     //ADC turned on
     //ADMUX -> default
     ADCSRA = 0xAB;          //ADC Enabled, no auto trigger, Interrupt enabled, 128 prescaller
+    //ADCSRB -> default in free running mode
+}
+
+Analog_Digital::Analog_Digital(Channel channel, FREQ freq, Reference ref, int mode) {
+	// TODO Auto-generated constructor stub
+	this->reference = 0;
+	if(channel == INTERNAL1V1) vout = 1.1;
+	else this->vout = 0;
+    //DIDR0 -> default
+    PRR &= ~(1<<PRADC);     //ADC turned on
+    ADMUX = (ref << 6)||(channel);
+    ADCSRA = 0xA8;          //10101000
+    ADCSRA = (ADCSRA||freq);
     //ADCSRB -> default in free running mode
 }
 
@@ -46,7 +59,7 @@ ISR(ADC_vect){
 void Analog_Digital::interrupt_adc(){
     int adc_val;
     adc_val = ADC;
-    buffer.push(adc_val);
+    adc.buffer.push(adc_val);
     ADCSRA |= 1<<ADSC;
 }
 
