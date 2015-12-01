@@ -8,6 +8,7 @@
 #include "Analog_Digital.h"
 #include "avr/io.h"
 #include "avr/interrupt.h"
+#include "util/delay.h"
 #include "math.h"
 #include "stdlib.h"
 #include "Uart.h"
@@ -20,11 +21,8 @@ void operator delete(void * p) {
 
 Analog_Digital::Analog_Digital() {
 	// TODO Auto-generated constructor stub
-    //DIDR0 -> default
-    PRR &= ~(1<<PRADC);     //ADC turned on
-    //ADMUX -> default
-    ADCSRA = 0xAB;          //ADC Enabled, no auto trigger, Interrupt enabled, 128 prescaller
-    //ADCSRB -> default in free running mode
+	sei();
+	ADCSRA = 0xEF;
 }
 
 Analog_Digital::Analog_Digital(Channel channel, FREQ freq, Reference ref, int mode) {
@@ -33,7 +31,6 @@ Analog_Digital::Analog_Digital(Channel channel, FREQ freq, Reference ref, int mo
 	if(channel == INTERNAL1V1) vout = 1.1;
 	else this->vout = 0;
     //DIDR0 -> default
-    PRR &= ~(1<<PRADC);     //ADC turned on
     ADMUX = (ref << 6)||(channel);
     ADCSRA = 0xA8;          //10101000
     ADCSRA = (ADCSRA||freq);
@@ -44,9 +41,14 @@ Analog_Digital::~Analog_Digital() {
 	// TODO Auto-generated destructor stub
 }
 
-unsigned long int Analog_Digital::to_analog(unsigned long int val){
+unsigned int Analog_Digital::to_analog(unsigned int val){
+	return ((long)5000*(long)val)/1023;
+}
+
+unsigned int Analog_Digital::to_vref(unsigned int val){
 	if(ADIF == 1){
-		return (5/1023)/val;
+		this->reference = (this->vout * 1023)/val;
+		return this->reference;
 	}else{
 		return -1;
 	}
@@ -57,20 +59,26 @@ ISR(ADC_vect){
 }
 
 void Analog_Digital::interrupt_adc(){
-    int adc_val;
-    adc_val = ADC;
-    adc.buffer.push(adc_val);
-    ADCSRA |= 1<<ADSC;
+    adc.buffer.push(ADC);
+//    PORTB |= _BV(PORTB5);
 }
 
-unsigned long int Analog_Digital::rms(int repeat){
+int Analog_Digital::available() {
+	return this->buffer.available();
+}
+
+unsigned int Analog_Digital::rms(int repeat){
+	Uart u;
 	int aux = 0;
-	unsigned long accumulated = 0;
+	unsigned long int accumulated = 0;
+	unsigned long int val = 0;
 	while(aux < repeat){
-		int digital_value = OCR0A;
-		accumulated = digital_value * digital_value;
+		val = adc.buffer.pop();
+		//_delay_ms(2000);
+		//PORTB |= ~_BV(PORTB5);
+		//u.put(val);
+		accumulated += val * val;
 		aux++;
 	}
-
 	return sqrt(accumulated/repeat);
 }

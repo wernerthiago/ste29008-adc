@@ -1,7 +1,11 @@
 Archive member included because of file (symbol)
 
+/usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_mulsi3.o)
+                              ./Analog_Digital.o (__mulsi3)
 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_udivmodsi4.o)
                               ./Analog_Digital.o (__udivmodsi4)
+/usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_divmodsi4.o)
+                              ./Analog_Digital.o (__divmodsi4)
 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_exit.o)
                               /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/crtm328p.o (exit)
 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_copy_data.o)
@@ -72,8 +76,12 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./Analog_Digital.o
  .data          0x0000000000000000        0x0 ./Analog_Digital.o
  .bss           0x0000000000000000        0x0 ./Analog_Digital.o
- .text._ZN14Analog_Digital9to_analogEm
-                0x0000000000000000       0x38 ./Analog_Digital.o
+ .text._ZN14Analog_DigitalC2ENS_7ChannelENS_4FREQENS_9ReferenceEi
+                0x0000000000000000       0xec ./Analog_Digital.o
+ .text._ZN14Analog_Digital9to_analogEj
+                0x0000000000000000       0x54 ./Analog_Digital.o
+ .text._ZN14Analog_Digital7to_vrefEj
+                0x0000000000000000       0x26 ./Analog_Digital.o
  .text          0x0000000000000000        0x0 ./Uart.o
  .data          0x0000000000000000        0x0 ./Uart.o
  .bss           0x0000000000000000        0x0 ./Uart.o
@@ -85,12 +93,27 @@ Discarded input sections
                 0x0000000000000000       0x10 ./Uart.o
  .text._ZN4Uart12interruptoffEv
                 0x0000000000000000       0x10 ./Uart.o
+ .text._ZN15Circular_BufferILi23EED1Ev
+                0x0000000000000000       0x3a ./Uart.o
+ .text._ZN15Circular_BufferILi23EED0Ev
+                0x0000000000000000       0x28 ./Uart.o
+ .rodata._ZTV15Circular_BufferILi23EE
+                0x0000000000000000        0x8 ./Uart.o
+ .text._ZN4UartD1Ev
+                0x0000000000000000       0x2a ./Uart.o
  .text          0x0000000000000000        0x0 ./main.o
  .data          0x0000000000000000        0x0 ./main.o
  .bss           0x0000000000000000        0x0 ./main.o
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_mulsi3.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_mulsi3.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_mulsi3.o)
  .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_udivmodsi4.o)
  .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_udivmodsi4.o)
  .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_udivmodsi4.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_divmodsi4.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_divmodsi4.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_divmodsi4.o)
+ .text.libgcc   0x0000000000000000       0x36 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_divmodsi4.o)
  .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_exit.o)
  .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_exit.o)
  .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_exit.o)
@@ -280,7 +303,7 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000     0x1a08
+.text           0x0000000000000000     0x1b9a
  *(.vectors)
  .vectors       0x0000000000000000       0x68 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/crtm328p.o
                 0x0000000000000000                __vectors
@@ -372,32 +395,32 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a
                 0x00000000000003f8                __subsf3
  .text          0x0000000000000452      0x1ee /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_mul_sf.o)
                 0x0000000000000452                __mulsf3
- .text          0x0000000000000640       0x56 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_gt_sf.o)
+ .text          0x0000000000000640       0x5a /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_gt_sf.o)
                 0x0000000000000640                __gtsf2
- .text          0x0000000000000696       0x56 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_ge_sf.o)
-                0x0000000000000696                __gesf2
- .text          0x00000000000006ec       0x56 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_lt_sf.o)
-                0x00000000000006ec                __ltsf2
- .text          0x0000000000000742       0x9e /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_sf_to_si.o)
-                0x0000000000000742                __fixsfsi
- .text          0x00000000000007e0       0xe8 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_usi_to_sf.o)
-                0x00000000000007e0                __floatunsisf
- .text          0x00000000000008c8       0xb4 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_clzsi2.o)
-                0x00000000000008c8                __clzsi2
- .text          0x000000000000097c      0x19a /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_pack_sf.o)
-                0x000000000000097c                __pack_f
- .text          0x0000000000000b16       0xd2 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_unpack_sf.o)
-                0x0000000000000b16                __unpack_f
- .text          0x0000000000000be8       0xb2 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_fpcmp_parts_sf.o)
-                0x0000000000000be8                __fpcmp_parts_f
-                0x0000000000000c9a                . = ALIGN (0x2)
+ .text          0x000000000000069a       0x5a /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_ge_sf.o)
+                0x000000000000069a                __gesf2
+ .text          0x00000000000006f4       0x5a /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_lt_sf.o)
+                0x00000000000006f4                __ltsf2
+ .text          0x000000000000074e       0xa2 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_sf_to_si.o)
+                0x000000000000074e                __fixsfsi
+ .text          0x00000000000007f0       0xe8 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_usi_to_sf.o)
+                0x00000000000007f0                __floatunsisf
+ .text          0x00000000000008d8       0xb4 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_clzsi2.o)
+                0x00000000000008d8                __clzsi2
+ .text          0x000000000000098c      0x19a /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_pack_sf.o)
+                0x000000000000098c                __pack_f
+ .text          0x0000000000000b26       0xd2 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_unpack_sf.o)
+                0x0000000000000b26                __unpack_f
+ .text          0x0000000000000bf8       0xb2 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_fpcmp_parts_sf.o)
+                0x0000000000000bf8                __fpcmp_parts_f
+                0x0000000000000caa                . = ALIGN (0x2)
  *(.text.*)
- .text._ZdlPv   0x0000000000000c9a       0x1e ./Analog_Digital.o
-                0x0000000000000c9a                _ZdlPv
+ .text._ZdlPv   0x0000000000000caa       0x1e ./Analog_Digital.o
+                0x0000000000000caa                _ZdlPv
  .text._ZN14Analog_DigitalC2Ev
-                0x0000000000000cb8       0x4a ./Analog_Digital.o
-                0x0000000000000cb8                _ZN14Analog_DigitalC1Ev
-                0x0000000000000cb8                _ZN14Analog_DigitalC2Ev
+                0x0000000000000cc8       0x3a ./Analog_Digital.o
+                0x0000000000000cc8                _ZN14Analog_DigitalC1Ev
+                0x0000000000000cc8                _ZN14Analog_DigitalC2Ev
  .text._ZN14Analog_DigitalD2Ev
                 0x0000000000000d02       0x40 ./Analog_Digital.o
                 0x0000000000000d02                _ZN14Analog_DigitalD2Ev
@@ -409,120 +432,131 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a
                 0x0000000000000d66       0x52 ./Analog_Digital.o
                 0x0000000000000d66                __vector_21
  .text._ZN14Analog_Digital13interrupt_adcEv
-                0x0000000000000db8       0x40 ./Analog_Digital.o
+                0x0000000000000db8       0x20 ./Analog_Digital.o
                 0x0000000000000db8                _ZN14Analog_Digital13interrupt_adcEv
- .text._ZN14Analog_Digital3rmsEi
-                0x0000000000000df8       0xd4 ./Analog_Digital.o
-                0x0000000000000df8                _ZN14Analog_Digital3rmsEi
- .text._ZN15Circular_BufferILi23EEC1Ev
-                0x0000000000000ecc       0x3a ./Analog_Digital.o
-                0x0000000000000ecc                _ZN15Circular_BufferILi23EEC1Ev
- .text._ZN15Circular_BufferILi23EED1Ev
-                0x0000000000000f06       0x38 ./Analog_Digital.o
-                0x0000000000000f06                _ZN15Circular_BufferILi23EED1Ev
- .text._ZN15Circular_BufferILi23EED0Ev
-                0x0000000000000f3e       0x24 ./Analog_Digital.o
-                0x0000000000000f3e                _ZN15Circular_BufferILi23EED0Ev
- .text._ZN15Circular_BufferILi23EE4pushEj
-                0x0000000000000f62       0x72 ./Analog_Digital.o
-                0x0000000000000f62                _ZN15Circular_BufferILi23EE4pushEj
- .text._Z41__static_initialization_and_destruction_0ii
-                0x0000000000000fd4       0x58 ./Analog_Digital.o
- .text._GLOBAL__I__ZN14Analog_Digital3adcE
-                0x000000000000102c       0x18 ./Analog_Digital.o
- .text._GLOBAL__D__ZN14Analog_Digital3adcE
-                0x0000000000001044       0x18 ./Analog_Digital.o
- .text._ZN4UartC2Ev
-                0x000000000000105c       0x4e ./Uart.o
-                0x000000000000105c                _ZN4UartC2Ev
-                0x000000000000105c                _ZN4UartC1Ev
- .text._ZN4Uart3putEh
-                0x00000000000010aa       0x3e ./Uart.o
-                0x00000000000010aa                _ZN4Uart3putEh
- .text._ZN4Uart20rx_interrupt_handlerEv
-                0x00000000000010e8       0x22 ./Uart.o
-                0x00000000000010e8                _ZN4Uart20rx_interrupt_handlerEv
- .text._ZN4Uart23empty_interrupt_handlerEv
-                0x000000000000110a       0x42 ./Uart.o
-                0x000000000000110a                _ZN4Uart23empty_interrupt_handlerEv
- .text.__vector_18
-                0x000000000000114c       0x52 ./Uart.o
-                0x000000000000114c                __vector_18
- .text.__vector_19
-                0x000000000000119e       0x52 ./Uart.o
-                0x000000000000119e                __vector_19
- .text._ZN15Circular_BufferILi73EEC1Ev
-                0x00000000000011f0       0x42 ./Uart.o
-                0x00000000000011f0                _ZN15Circular_BufferILi73EEC1Ev
- .text._ZN15Circular_BufferILi73EED1Ev
-                0x0000000000001232       0x38 ./Uart.o
-                0x0000000000001232                _ZN15Circular_BufferILi73EED1Ev
- .text._ZN15Circular_BufferILi73EED0Ev
-                0x000000000000126a       0x24 ./Uart.o
-                0x000000000000126a                _ZN15Circular_BufferILi73EED0Ev
- .text._ZN15Circular_BufferILi73EE4pushEj
-                0x000000000000128e       0x82 ./Uart.o
-                0x000000000000128e                _ZN15Circular_BufferILi73EE4pushEj
- .text._ZN15Circular_BufferILi73EE3popEv
-                0x0000000000001310       0x82 ./Uart.o
-                0x0000000000001310                _ZN15Circular_BufferILi73EE3popEv
- .text._ZN15Circular_BufferILi73EE8has_dataEv
-                0x0000000000001392       0x40 ./Uart.o
-                0x0000000000001392                _ZN15Circular_BufferILi73EE8has_dataEv
+ .text._ZN14Analog_Digital9availableEv
+                0x0000000000000dd8       0x20 ./Analog_Digital.o
+                0x0000000000000dd8                _ZN14Analog_Digital9availableEv
  .text._ZN4UartD1Ev
-                0x00000000000013d2       0x28 ./Uart.o
-                0x00000000000013d2                _ZN4UartD1Ev
+                0x0000000000000df8       0x26 ./Analog_Digital.o
+                0x0000000000000df8                _ZN4UartD1Ev
+ .text._ZN14Analog_Digital3rmsEi
+                0x0000000000000e1e      0x124 ./Analog_Digital.o
+                0x0000000000000e1e                _ZN14Analog_Digital3rmsEi
+ .text._ZN13Circular_FIFOIjLi23EEC1Ev
+                0x0000000000000f42       0x44 ./Analog_Digital.o
+                0x0000000000000f42                _ZN13Circular_FIFOIjLi23EEC1Ev
+ .text._ZN13Circular_FIFOIjLi23EED1Ev
+                0x0000000000000f86       0x38 ./Analog_Digital.o
+                0x0000000000000f86                _ZN13Circular_FIFOIjLi23EED1Ev
+ .text._ZN13Circular_FIFOIjLi23EED0Ev
+                0x0000000000000fbe       0x24 ./Analog_Digital.o
+                0x0000000000000fbe                _ZN13Circular_FIFOIjLi23EED0Ev
+ .text._ZN13Circular_FIFOIjLi23EE4pushEj
+                0x0000000000000fe2       0x94 ./Analog_Digital.o
+                0x0000000000000fe2                _ZN13Circular_FIFOIjLi23EE4pushEj
+ .text._ZN13Circular_FIFOIjLi23EE9availableEv
+                0x0000000000001076       0x22 ./Analog_Digital.o
+                0x0000000000001076                _ZN13Circular_FIFOIjLi23EE9availableEv
+ .text._ZN15Circular_BufferILi23EED1Ev
+                0x0000000000001098       0x38 ./Analog_Digital.o
+                0x0000000000001098                _ZN15Circular_BufferILi23EED1Ev
+ .text._ZN15Circular_BufferILi23EED0Ev
+                0x00000000000010d0       0x24 ./Analog_Digital.o
+                0x00000000000010d0                _ZN15Circular_BufferILi23EED0Ev
+ .text._ZN13Circular_FIFOIjLi23EE3popEv
+                0x00000000000010f4       0x94 ./Analog_Digital.o
+                0x00000000000010f4                _ZN13Circular_FIFOIjLi23EE3popEv
  .text._Z41__static_initialization_and_destruction_0ii
-                0x00000000000013fa       0x58 ./Uart.o
+                0x0000000000001188       0x58 ./Analog_Digital.o
+ .text._GLOBAL__I__ZN14Analog_Digital3adcE
+                0x00000000000011e0       0x18 ./Analog_Digital.o
+ .text._GLOBAL__D__ZN14Analog_Digital3adcE
+                0x00000000000011f8       0x18 ./Analog_Digital.o
+ .text._ZN4UartC2Ev
+                0x0000000000001210       0x4c ./Uart.o
+                0x0000000000001210                _ZN4UartC2Ev
+                0x0000000000001210                _ZN4UartC1Ev
+ .text._ZN4Uart3putEh
+                0x000000000000125c       0x3e ./Uart.o
+                0x000000000000125c                _ZN4Uart3putEh
+ .text._ZN4Uart20rx_interrupt_handlerEv
+                0x000000000000129a       0x22 ./Uart.o
+                0x000000000000129a                _ZN4Uart20rx_interrupt_handlerEv
+ .text._ZN4Uart23empty_interrupt_handlerEv
+                0x00000000000012bc       0x42 ./Uart.o
+                0x00000000000012bc                _ZN4Uart23empty_interrupt_handlerEv
+ .text.__vector_18
+                0x00000000000012fe       0x52 ./Uart.o
+                0x00000000000012fe                __vector_18
+ .text.__vector_19
+                0x0000000000001350       0x52 ./Uart.o
+                0x0000000000001350                __vector_19
+ .text._ZN15Circular_BufferILi23EEC1Ev
+                0x00000000000013a2       0x3a ./Uart.o
+                0x00000000000013a2                _ZN15Circular_BufferILi23EEC1Ev
+ .text._ZN15Circular_BufferILi23EE4pushEj
+                0x00000000000013dc       0x72 ./Uart.o
+                0x00000000000013dc                _ZN15Circular_BufferILi23EE4pushEj
+ .text._ZN15Circular_BufferILi23EE3popEv
+                0x000000000000144e       0x72 ./Uart.o
+                0x000000000000144e                _ZN15Circular_BufferILi23EE3popEv
+ .text._ZN15Circular_BufferILi23EE8has_dataEv
+                0x00000000000014c0       0x38 ./Uart.o
+                0x00000000000014c0                _ZN15Circular_BufferILi23EE8has_dataEv
+ .text._Z41__static_initialization_and_destruction_0ii
+                0x00000000000014f8       0x58 ./Uart.o
  .text._GLOBAL__I__ZN4Uart4uartE
-                0x0000000000001452       0x18 ./Uart.o
+                0x0000000000001550       0x18 ./Uart.o
  .text._GLOBAL__D__ZN4Uart4uartE
-                0x000000000000146a       0x18 ./Uart.o
- .text.main     0x0000000000001482      0x152 ./main.o
-                0x0000000000001482                main
- .text.libgcc   0x00000000000015d4       0x44 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_udivmodsi4.o)
-                0x00000000000015d4                __udivmodsi4
- .text.libgcc   0x0000000000001618       0x38 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_prologue.o)
-                0x0000000000001618                __prologue_saves__
- .text.libgcc   0x0000000000001650       0x36 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_epilogue.o)
-                0x0000000000001650                __epilogue_restores__
- .text.libgcc   0x0000000000001686        0xc /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_tablejump.o)
-                0x0000000000001686                __tablejump2__
-                0x000000000000168a                __tablejump__
+                0x0000000000001568       0x18 ./Uart.o
+ .text.main     0x0000000000001580      0x1a8 ./main.o
+                0x0000000000001580                main
+ .text.libgcc   0x0000000000001728       0x3e /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_mulsi3.o)
+                0x0000000000001728                __mulsi3
+ .text.libgcc   0x0000000000001766       0x44 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_udivmodsi4.o)
+                0x0000000000001766                __udivmodsi4
+ .text.libgcc   0x00000000000017aa       0x38 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_prologue.o)
+                0x00000000000017aa                __prologue_saves__
+ .text.libgcc   0x00000000000017e2       0x36 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_epilogue.o)
+                0x00000000000017e2                __epilogue_restores__
+ .text.libgcc   0x0000000000001818        0xc /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_tablejump.o)
+                0x0000000000001818                __tablejump2__
+                0x000000000000181c                __tablejump__
  .text.avr-libc.fplib
-                0x0000000000001692       0x84 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(sqrt.o)
-                0x000000000000169a                sqrt
+                0x0000000000001824       0x84 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(sqrt.o)
+                0x000000000000182c                sqrt
  .text.avr-libc.fplib
-                0x0000000000001716       0x1c /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_mpack.o)
-                0x0000000000001716                __fp_mpack
-                0x000000000000171a                __fp_mpack_finite
+                0x00000000000018a8       0x1c /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_mpack.o)
+                0x00000000000018a8                __fp_mpack
+                0x00000000000018ac                __fp_mpack_finite
  .text.avr-libc.fplib
-                0x0000000000001732        0x6 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_nan.o)
-                0x0000000000001732                __fp_nan
+                0x00000000000018c4        0x6 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_nan.o)
+                0x00000000000018c4                __fp_nan
  .text.avr-libc.fplib
-                0x0000000000001738        0xe /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_norm2.o)
-                0x0000000000001738                __fp_norm2
+                0x00000000000018ca        0xe /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_norm2.o)
+                0x00000000000018ca                __fp_norm2
  .text.avr-libc.fplib
-                0x0000000000001746       0x44 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_split3.o)
-                0x0000000000001746                __fp_split3
-                0x0000000000001756                __fp_splitA
+                0x00000000000018d8       0x44 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_split3.o)
+                0x00000000000018d8                __fp_split3
+                0x00000000000018e8                __fp_splitA
  .text.avr-libc
-                0x000000000000178a      0x266 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libc.a(malloc.o)
-                0x000000000000178a                malloc
-                0x00000000000018be                free
-                0x00000000000019f0                . = ALIGN (0x2)
+                0x000000000000191c      0x266 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libc.a(malloc.o)
+                0x000000000000191c                malloc
+                0x0000000000001a50                free
+                0x0000000000001b82                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000000000019f0        0x0 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_exit.o)
-                0x00000000000019f0                exit
-                0x00000000000019f0                _exit
+ .fini9         0x0000000000001b82        0x0 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_exit.o)
+                0x0000000000001b82                exit
+                0x0000000000001b82                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
  *(.fini7)
  *(.fini7)
  *(.fini6)
- .fini6         0x00000000000019f0       0x14 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_dtors.o)
-                0x00000000000019f0                __do_global_dtors
+ .fini6         0x0000000000001b82       0x14 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_dtors.o)
+                0x0000000000001b82                __do_global_dtors
  *(.fini6)
  *(.fini5)
  *(.fini5)
@@ -535,11 +569,11 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000000000001a04        0x4 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_exit.o)
+ .fini0         0x0000000000001b96        0x4 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000000000001a08                _etext = .
+                0x0000000000001b9a                _etext = .
 
-.data           0x0000000000800100      0x126 load address 0x0000000000001a08
+.data           0x0000000000800100      0x126 load address 0x0000000000001b9a
                 0x0000000000800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800100        0x8 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_thenan_sf.o)
@@ -559,38 +593,38 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a
  .rodata._ZTV15Circular_BufferILi23EE
                 0x0000000000800216        0x8 ./Analog_Digital.o
                 0x0000000000800216                _ZTV15Circular_BufferILi23EE
- .rodata._ZTV15Circular_BufferILi73EE
-                0x000000000080021e        0x8 ./Uart.o
-                0x000000000080021e                _ZTV15Circular_BufferILi73EE
+ .rodata._ZTV13Circular_FIFOIjLi23EE
+                0x000000000080021e        0x8 ./Analog_Digital.o
+                0x000000000080021e                _ZTV13Circular_FIFOIjLi23EE
  *(.gnu.linkonce.d*)
                 0x0000000000800226                . = ALIGN (0x2)
                 0x0000000000800226                _edata = .
                 0x0000000000800226                PROVIDE (__data_end, .)
 
-.bss            0x0000000000800226      0x16a
+.bss            0x0000000000800226       0xac
                 0x0000000000800226                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss._ZN14Analog_Digital3adcE
-                0x0000000000800226       0x36 ./Analog_Digital.o
+                0x0000000000800226       0x40 ./Analog_Digital.o
                 0x0000000000800226                _ZN14Analog_Digital3adcE
  .bss._ZN4Uart4uartE
-                0x000000000080025c      0x130 ./Uart.o
-                0x000000000080025c                _ZN4Uart4uartE
+                0x0000000000800266       0x68 ./Uart.o
+                0x0000000000800266                _ZN4Uart4uartE
  *(COMMON)
- COMMON         0x000000000080038c        0x4 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libc.a(malloc.o)
-                0x000000000080038c                __brkval
-                0x000000000080038e                __flp
-                0x0000000000800390                PROVIDE (__bss_end, .)
-                0x0000000000001a08                __data_load_start = LOADADDR (.data)
-                0x0000000000001b2e                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00000000008002ce        0x4 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libc.a(malloc.o)
+                0x00000000008002ce                __brkval
+                0x00000000008002d0                __flp
+                0x00000000008002d2                PROVIDE (__bss_end, .)
+                0x0000000000001b9a                __data_load_start = LOADADDR (.data)
+                0x0000000000001cc0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0000000000800390        0x0
-                0x0000000000800390                PROVIDE (__noinit_start, .)
+.noinit         0x00000000008002d2        0x0
+                0x00000000008002d2                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0000000000800390                PROVIDE (__noinit_end, .)
-                0x0000000000800390                _end = .
-                0x0000000000800390                PROVIDE (__heap_start, .)
+                0x00000000008002d2                PROVIDE (__noinit_end, .)
+                0x00000000008002d2                _end = .
+                0x00000000008002d2                PROVIDE (__heap_start, .)
 
 .eeprom         0x0000000000810000        0x0
  *(.eeprom*)
@@ -608,31 +642,31 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x0000000000000000     0x2964
+.stab           0x0000000000000000     0x2be0
  *(.stab)
  .stab          0x0000000000000000      0x6cc /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/crtm328p.o
- .stab          0x00000000000006cc      0x828 ./Analog_Digital.o
+ .stab          0x00000000000006cc      0xa2c ./Analog_Digital.o
+                                        0xbe8 (size before relaxing)
+ .stab          0x00000000000010f8      0x798 ./Uart.o
                                         0x87c (size before relaxing)
- .stab          0x0000000000000ef4      0x798 ./Uart.o
-                                        0x87c (size before relaxing)
- .stab          0x000000000000168c      0x4a4 ./main.o
-                                        0x4b0 (size before relaxing)
- .stab          0x0000000000001b30      0x354 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(sqrt.o)
+ .stab          0x0000000000001890      0x51c ./main.o
+                                        0x528 (size before relaxing)
+ .stab          0x0000000000001dac      0x354 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(sqrt.o)
                                         0x360 (size before relaxing)
- .stab          0x0000000000001e84       0xe4 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_mpack.o)
+ .stab          0x0000000000002100       0xe4 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_mpack.o)
                                          0xf0 (size before relaxing)
- .stab          0x0000000000001f68       0x54 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_nan.o)
+ .stab          0x00000000000021e4       0x54 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_nan.o)
                                          0x60 (size before relaxing)
- .stab          0x0000000000001fbc       0x84 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_norm2.o)
+ .stab          0x0000000000002238       0x84 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_norm2.o)
                                          0x90 (size before relaxing)
- .stab          0x0000000000002040      0x1d4 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_split3.o)
+ .stab          0x00000000000022bc      0x1d4 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libm.a(fp_split3.o)
                                         0x1e0 (size before relaxing)
- .stab          0x0000000000002214      0x750 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libc.a(malloc.o)
+ .stab          0x0000000000002490      0x750 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libc.a(malloc.o)
                                         0x75c (size before relaxing)
 
-.stabstr        0x0000000000000000     0x1b62
+.stabstr        0x0000000000000000     0x1fea
  *(.stabstr)
- .stabstr       0x0000000000000000     0x1b62 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/crtm328p.o
+ .stabstr       0x0000000000000000     0x1fea /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/crtm328p.o
 
 .stab.excl
  *(.stab.excl)
@@ -697,27 +731,35 @@ Symbol                                            File
 Analog_Digital::Analog_Digital()                  ./Analog_Digital.o
                                                   ./main.o
 Analog_Digital::Analog_Digital()                  ./Analog_Digital.o
+Analog_Digital::Analog_Digital(Analog_Digital::Channel, Analog_Digital::FREQ, Analog_Digital::Reference, int) ./Analog_Digital.o
+Analog_Digital::Analog_Digital(Analog_Digital::Channel, Analog_Digital::FREQ, Analog_Digital::Reference, int) ./Analog_Digital.o
 Analog_Digital::adc                               ./Analog_Digital.o
+Analog_Digital::available()                       ./Analog_Digital.o
+                                                  ./main.o
 Analog_Digital::interrupt_adc()                   ./Analog_Digital.o
 Analog_Digital::rms(int)                          ./Analog_Digital.o
                                                   ./main.o
-Analog_Digital::to_analog(unsigned long)          ./Analog_Digital.o
+Analog_Digital::to_analog(unsigned int)           ./Analog_Digital.o
+Analog_Digital::to_vref(unsigned int)             ./Analog_Digital.o
 Analog_Digital::~Analog_Digital()                 ./Analog_Digital.o
 Analog_Digital::~Analog_Digital()                 ./Analog_Digital.o
 Analog_Digital::~Analog_Digital()                 ./Analog_Digital.o
-Circular_Buffer<23>::Circular_Buffer()            ./Analog_Digital.o
-Circular_Buffer<23>::push(unsigned int)           ./Analog_Digital.o
+Circular_Buffer<23>::Circular_Buffer()            ./Uart.o
+Circular_Buffer<23>::has_data()                   ./Uart.o
+Circular_Buffer<23>::pop()                        ./Uart.o
+Circular_Buffer<23>::push(unsigned int)           ./Uart.o
 Circular_Buffer<23>::~Circular_Buffer()           ./Analog_Digital.o
 Circular_Buffer<23>::~Circular_Buffer()           ./Analog_Digital.o
-Circular_Buffer<73>::Circular_Buffer()            ./Uart.o
-Circular_Buffer<73>::has_data()                   ./Uart.o
-Circular_Buffer<73>::pop()                        ./Uart.o
-Circular_Buffer<73>::push(unsigned int)           ./Uart.o
-Circular_Buffer<73>::~Circular_Buffer()           ./Uart.o
-Circular_Buffer<73>::~Circular_Buffer()           ./Uart.o
+Circular_FIFO<unsigned int, 23>::Circular_FIFO()  ./Analog_Digital.o
+Circular_FIFO<unsigned int, 23>::available()      ./Analog_Digital.o
+Circular_FIFO<unsigned int, 23>::pop()            ./Analog_Digital.o
+Circular_FIFO<unsigned int, 23>::push(unsigned int) ./Analog_Digital.o
+Circular_FIFO<unsigned int, 23>::~Circular_FIFO() ./Analog_Digital.o
+Circular_FIFO<unsigned int, 23>::~Circular_FIFO() ./Analog_Digital.o
 Uart::Uart()                                      ./Uart.o
 Uart::Uart()                                      ./Uart.o
                                                   ./main.o
+                                                  ./Analog_Digital.o
 Uart::empty_interrupt_handler()                   ./Uart.o
 Uart::get()                                       ./Uart.o
 Uart::has_data()                                  ./Uart.o
@@ -727,7 +769,7 @@ Uart::put(unsigned char)                          ./Uart.o
                                                   ./main.o
 Uart::rx_interrupt_handler()                      ./Uart.o
 Uart::uart                                        ./Uart.o
-Uart::~Uart()                                     ./Uart.o
+Uart::~Uart()                                     ./Analog_Digital.o
 __addsf3                                          /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_addsub_sf.o)
 __bad_interrupt                                   /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/crtm328p.o
 __brkval                                          /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libc.a(malloc.o)
@@ -742,6 +784,8 @@ __ctors_start                                     /usr/lib/gcc/avr/4.5.3/avr5/li
 __data_end                                        /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_copy_data.o)
 __data_load_start                                 /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_copy_data.o)
 __data_start                                      /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_copy_data.o)
+__divmodsi4                                       /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_divmodsi4.o)
+                                                  ./Analog_Digital.o
 __do_clear_bss                                    /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_clear_bss.o)
                                                   /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libc.a(malloc.o)
                                                   ./Uart.o
@@ -806,6 +850,8 @@ __malloc_heap_start                               /usr/lib/gcc/avr/4.5.3/../../.
 __malloc_margin                                   /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr5/libc.a(malloc.o)
 __mulsf3                                          /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_mul_sf.o)
                                                   ./main.o
+__mulsi3                                          /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_mulsi3.o)
+                                                  ./Analog_Digital.o
 __pack_f                                          /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_pack_sf.o)
                                                   /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_usi_to_sf.o)
                                                   /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_mul_sf.o)
@@ -829,6 +875,7 @@ __thenan_sf                                       /usr/lib/gcc/avr/4.5.3/avr5/li
                                                   /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_mul_sf.o)
                                                   /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_addsub_sf.o)
 __udivmodsi4                                      /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_udivmodsi4.o)
+                                                  /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_divmodsi4.o)
                                                   ./Analog_Digital.o
 __unpack_f                                        /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_unpack_sf.o)
                                                   /usr/lib/gcc/avr/4.5.3/avr5/libgcc.a(_sf_to_si.o)
@@ -881,4 +928,4 @@ sqrt                                              /usr/lib/gcc/avr/4.5.3/../../.
                                                   ./Analog_Digital.o
 vtable for Analog_Digital                         ./Analog_Digital.o
 vtable for Circular_Buffer<23>                    ./Analog_Digital.o
-vtable for Circular_Buffer<73>                    ./Uart.o
+vtable for Circular_FIFO<unsigned int, 23>        ./Analog_Digital.o

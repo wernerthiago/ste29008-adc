@@ -9,12 +9,13 @@
 #define Analog_Digital_H_
 
 #include "Circular_Buffer.h"
+#include "Circular_FIFO.h"
 
 class Analog_Digital {
 private:
 	static Analog_Digital adc;
-	int valor;
-	int reference;
+	volatile unsigned int val;
+	unsigned int reference;
 	float vout;
 public:
 	enum FREQ{
@@ -45,7 +46,6 @@ public:
 		RESERVED = 0x2,
 		A1V1 = 0x3
 	};
-
 	static const int Buffer_Size = 23;
 	Analog_Digital();
 	Analog_Digital(Channel channel, FREQ freq,Reference ref, int mode);
@@ -53,10 +53,13 @@ public:
 	int get_raw();
 	int get_volt();
 	int get_ref();
-	unsigned long int to_analog(unsigned long int val);
-	unsigned long int rms(int repeat);
+	int available();
+	unsigned int to_analog(unsigned int val);
+	unsigned int to_vref(unsigned int val);
+	unsigned int rms(int repeat);
 	static void interrupt_adc();
-	Circular_Buffer<Buffer_Size> buffer;
+	//Circular_Buffer<Buffer_Size> buffer;
+	Circular_FIFO<unsigned int,Buffer_Size> buffer;
 };
 
 #endif /* ADC_H_ */

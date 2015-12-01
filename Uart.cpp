@@ -9,7 +9,7 @@
 #include "avr/io.h"
 #include "avr/interrupt.h"
 #define F_CPU 16000000UL
-#define BAUD 9600
+#define BAUD 19200
 #include "util/setbaud.h"
 Uart Uart::uart;
 

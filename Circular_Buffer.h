@@ -32,6 +32,9 @@ public:
 	const int max_len() const {
 		return SIZE;
 	}
+	int available() {
+		return (tail > head)? tail - head : head - tail;
+	}
 
 private:
     uint16_t buffer[SIZE];
