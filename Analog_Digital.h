@@ -13,7 +13,7 @@
 
 class Analog_Digital {
 private:
-	static Analog_Digital adc;
+	static Analog_Digital * adc;
 	volatile unsigned int val;
 	unsigned int reference;
 	float vout;
@@ -53,7 +53,7 @@ public:
 	int get_raw();
 	int get_volt();
 	int get_ref();
-	int available();
+	volatile int available();
 	unsigned int to_analog(unsigned int val);
 	unsigned int to_vref(unsigned int val);
 	unsigned int rms(int repeat);

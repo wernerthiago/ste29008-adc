@@ -14,8 +14,6 @@ int main(){
 	PORTB = 0x80;
 	while(1){
 		val = adc.available();
-		u.put(val);
-		u.put('\n');
 		if(val >= 20) {
 			PORTB |= _BV(PORTB5);
 			val = adc.rms(20);
