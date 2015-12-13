@@ -9,6 +9,7 @@
 #define UART_H_
 
 #include "Circular_Buffer.h"
+#include "Circular_FIFO.h"
 
 class Uart {
 private:
@@ -26,8 +27,8 @@ public:
 	static void interruptoff();
 	static void interrupton();
 
-	Circular_Buffer<Buffer_Size> rx;
-	Circular_Buffer<Buffer_Size> tx;
+	Circular_FIFO<uint8_t,Buffer_Size> tx;
+	Circular_FIFO<uint8_t,Buffer_Size> rx;
 };
 
 #endif /* UART_H_ */

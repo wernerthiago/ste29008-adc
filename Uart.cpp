@@ -6,6 +6,7 @@
  */
 
 #include "Uart.h"
+#include "Circular_FIFO.h"
 #include "avr/io.h"
 #include "avr/interrupt.h"
 #define F_CPU 16000000UL
@@ -40,15 +41,9 @@ bool Uart::has_data() {
 
 void Uart::rx_interrupt_handler() {
     uart.rx.push(UDR0);
-	//TEST
-//	PORTB &= ~_BV(PORTB5);	//LIGA LED
-//	PORTB |= _BV(PORTB5);	//DESLIGA LED
 }
 
 void Uart::empty_interrupt_handler(){
-	//TEST
-//	PORTB &= ~_BV(PORTB5);	//LIGA LED
-//	PORTB |= _BV(PORTB5);	//DESLIGA LED
     if(uart.tx.has_data())
         UDR0 = uart.tx.pop();
     else UCSR0B &= ~0x20;

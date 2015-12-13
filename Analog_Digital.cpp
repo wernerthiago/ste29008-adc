@@ -28,18 +28,18 @@ Analog_Digital::Analog_Digital() {
 	adc = this;
 }
 
-Analog_Digital::Analog_Digital(Channel channel, FREQ freq, Reference ref, int mode) {
+Analog_Digital::Analog_Digital(Channel channel, FREQ freq, Reference ref) {
 	// TODO Auto-generated constructor stub
 	this->reference = 0;
 	if(channel == INTERNAL1V1) vout = 1.1;
 	else this->vout = 0;
-    //DIDR0 -> default
-    ADMUX = (ref << 6)||(channel);
-    ADCSRA = 0xA8;          //10101000
-    ADCSRA = (ADCSRA||freq);
-    //ADCSRB -> default in free running mode
+	//DIDR0 -> default
+	ADMUX = (ref << 6)||(channel);
+	ADCSRA = 0xA8;          //10101000
+	ADCSRA = (ADCSRA||freq);
+	//ADCSRB -> default in free running mode
 
-    adc = this;
+	adc = this;
 }
 
 Analog_Digital::~Analog_Digital() {
@@ -60,20 +60,14 @@ unsigned int Analog_Digital::to_vref(unsigned int val){
 }
 
 ISR(ADC_vect){
-//	Uart u;
-//	u.put(ADCH);
-//	u.put(ADCL);
 	Analog_Digital::interrupt_adc();
 }
 
 void Analog_Digital::interrupt_adc(){
-    adc->buffer.push(ADC);
-//    PORTB |= _BV(PORTB5);
+	adc->buffer.push(ADC);
 }
 
 volatile int Analog_Digital::available() {
-//	Uart u;
-//	u.put(this->buffer.available());
 	return this->buffer.available();
 }
 
@@ -84,11 +78,29 @@ unsigned int Analog_Digital::rms(int repeat){
 	unsigned long int val = 0;
 	while(aux < repeat){
 		val = this->buffer.pop();
-		//_delay_ms(2000);
-		//PORTB |= ~_BV(PORTB5);
-		//u.put(val);
 		accumulated += val * val;
 		aux++;
 	}
 	return sqrt(accumulated/repeat);
 }
+
+double  Analog_Digital::mylog(double x)
+{
+	int l = -1; // mylog2(0) will return -1
+
+	while (x != 0u){
+		x = (unsigned) x >> 1u;
+		++l;
+	}
+	return l*0.693147181;
+}
+
+
+unsigned int Analog_Digital::temperature(unsigned int measure){
+	int R2 = 10000;
+	float c1 = 1.009249522e-03, c2 = 2.378405444e-04, c3 = 2.019202697e-07;
+	unsigned long R1 = R2*(1023.0/measure - 1.0);
+	float aux = mylog(R1);
+	return (1.0/(c1+c2*aux+c3*aux*aux*aux))-273.15-8;
+}
+

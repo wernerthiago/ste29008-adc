@@ -8,7 +8,7 @@
 int main(){
 	Analog_Digital adc;
 	Uart u;
-	int val = 0;
+	unsigned int val = 0;
 	PINB = 0x23;
 	DDRB = 0x24;
 	PORTB = 0x80;
@@ -17,6 +17,7 @@ int main(){
 		if(val >= 20) {
 			PORTB |= _BV(PORTB5);
 			val = adc.rms(20);
+			val = adc.temperature(val);
 			u.put(val);
 		}
 		_delay_ms(TIME);

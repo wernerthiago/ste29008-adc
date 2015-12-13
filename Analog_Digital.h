@@ -48,7 +48,7 @@ public:
 	};
 	static const int Buffer_Size = 23;
 	Analog_Digital();
-	Analog_Digital(Channel channel, FREQ freq,Reference ref, int mode);
+	Analog_Digital(Channel channel, FREQ freq,Reference ref);
 	virtual ~Analog_Digital();
 	int get_raw();
 	int get_volt();
@@ -58,6 +58,10 @@ public:
 	unsigned int to_vref(unsigned int val);
 	unsigned int rms(int repeat);
 	static void interrupt_adc();
+	double  mylog(double y);
+	//float mylog(const float &val);
+	float fast_log2(float val);
+	unsigned int temperature(unsigned int measure);
 	//Circular_Buffer<Buffer_Size> buffer;
 	Circular_FIFO<unsigned int,Buffer_Size> buffer;
 };

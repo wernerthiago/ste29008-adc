@@ -7,7 +7,6 @@
 
 #ifndef LIB_CIRCULARFIFO_H_
 #define LIB_CIRCULARFIFO_H_
-#include "Uart.h"
 // If SIZE >= 2
 template<class T, int SIZE>
 class Circular_FIFO {
